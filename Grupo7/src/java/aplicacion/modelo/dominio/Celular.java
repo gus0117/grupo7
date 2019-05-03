@@ -5,7 +5,6 @@
  */
 package aplicacion.modelo.dominio;
 
-import com.sun.javafx.scene.control.skin.VirtualFlow;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,25 +13,40 @@ import java.util.List;
  * @author Joel
  */
 public class Celular {
-    private List<Integer> integer;
+    /**
+     * Referencia a la clase que contiene varias operaciones matematicas
+     */
+    private DispositivoCientifico dc;
 
+    /**
+     * Constructor por defecto que inicializa el dispositivoCientifico
+     */
     public Celular() {
-        integer = new ArrayList<>();
-   
-    }
-
-    public Celular(List<Integer> integer) {
-        this.integer = integer;
-    }
-
-    public List<Integer> getInteger() {
-        return integer;
-    }
-
-    public void setInteger(List<Integer> integer) {
-        this.integer = integer;
+        dc = new DispositivoCientifico();
     }
     
+    /**
+     * Metodo que genera una tabla del 1 a 100 por un valor entero positivo.
+     * @param valor numero entero positivo para generar la tabla
+     * @return devuelve una lista que representa una tabla de multiplicar
+     * con el formato A x B = C
+     */
+    public List<String> obtenerTablaFormateada(int valor){
+        List<String> tablaFormateada = new ArrayList<String>();
+        for(int i = 1; i <= 100; i++){
+            tablaFormateada.add(valor + " x " + i + " = " + (dc.calcularMultiplicacion(valor, i)));
+        }
+        return tablaFormateada;
+    }  
+
+    //Metodos Accesores
     
+    public DispositivoCientifico getDc() {
+        return dc;
+    }
+
+    public void setDc(DispositivoCientifico dc) {
+        this.dc = dc;
+    }
     
 }
