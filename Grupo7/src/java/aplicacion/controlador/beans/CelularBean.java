@@ -19,9 +19,26 @@ public class CelularBean {
     public CelularBean() {
         celular = new Celular();
     }
+    
+    /**
+     * Obtiene la tabla de multiplicar de un numero formateada a string
+     * @param numero valor del cual obtener la tabla
+     * @return lista de string que representa la tabla de multiplicar
+     */
     public List<String> obtenerTablaFormateada(int numero){
         return celular.obtenerTablaFormateada(numero);
     }
+    
+    /**
+     * Invoca al metodo obtenerDivisores de la clase Celular
+     * para obtener una lista de divisores
+     * @param numero numero entero del cual se obtienen los divisores
+     * @return devuelve una lista de divisores enteros
+     */
+    public List<Integer> obtenerDivisores(int numero){
+        return celular.obtenerDivisores(numero);
+    }
+    //Metodos Accesores
     public Celular getCelular() {
         return celular;
     }
@@ -29,6 +46,5 @@ public class CelularBean {
     public void setCelular(Celular celular) {
         this.celular = celular;
     }
-    
     
 }

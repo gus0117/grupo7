@@ -1,12 +1,40 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Divisores</title>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <style type="text/css">
+            .ui-datalist {
+                width:300px;
+                margin-bottom: 20px;
+            }
+
+            .ui-datalist-item {
+                padding:3px;
+            }
+
+            .paginated .ui-datalist-data {
+                padding-left: 20px;
+            }
+        </style>
+        <h:form>
+            <p:panelGrid id="pnlInputs" columns="2">
+                <p:outputLabel id="lblNumero" value="Ingrese numero"></p:outputLabel>
+                <p:inputNumber id="txtNumero" value="#{celularFormBean.numero}" decimalPlaces="0" minValue="0" required="true" requiredMessage="Debe Ingresar un numero"></p:inputNumber>
+                <p:commandButton id="btnObtenerDivisores" value="Obtener Divisores" update="tblDivisores"></p:commandButton>
+            </p:panelGrid>
+            <p:dataList id="tblDivisores" value="#{celularFormBean.obtenerDivisores()}" var="divisor" type="ordered" emptyMessage="No hay valores" >
+                <f:facet name="header">
+                    Divisores
+                </f:facet>
+                #{divisor}
+            </p:dataList>
+        </h:form>
     </h:body>
 </html>
 

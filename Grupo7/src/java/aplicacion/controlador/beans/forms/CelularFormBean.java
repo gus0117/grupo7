@@ -38,6 +38,14 @@ public class CelularFormBean {
         return celularBean.obtenerTablaFormateada(numero);
     }
     
+    /**
+     * Invoca al metodo obtenerDivisores de CelularBean
+     * @return devuelve una lista cargada con los divisores de un numero
+     */
+    public List<Integer> obtenerDivisores(){
+        return celularBean.obtenerDivisores(numero);
+    }
+    
     //Metodos accesores
     public CelularBean getCelularBean() {
         return celularBean;

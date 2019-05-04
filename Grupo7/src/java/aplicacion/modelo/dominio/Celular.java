@@ -38,7 +38,21 @@ public class Celular {
         }
         return tablaFormateada;
     }  
-
+    
+    /**
+     * Genera un lista de los divisores de un numero
+     * @param valor numero del cual obtener los divisores
+     * @return devuelve una lista cargada de los divisores
+     */
+    public List<Integer> obtenerDivisores(int valor){
+        List<Integer> divisores = new ArrayList<Integer>();
+        for(int i = 1; i <= valor; i++){
+            if(dc.calcularResto(valor, i) == 0){
+                divisores.add(i);
+            }
+        }
+        return divisores;
+    }
     //Metodos Accesores
     
     public DispositivoCientifico getDc() {
