@@ -54,6 +54,17 @@ public class CelularBean {
         return celular.mostrarPares(cotaInf, cotaSup);
     }
     
+    /**
+     * Invoca al metodo celular.validarCotas.
+     * Valida si la cota inferior es menor a la cota superior
+     * @param cotaInf cota inferior.
+     * @param cotaSup cota superior.
+     * @return si la cota inferior es menor devuelve true, sino devuelve false.
+     */
+    public boolean validarCotas(int cotaInf, int cotaSup){
+        return celular.validarCotas(cotaInf, cotaSup);
+    }
+    
     //Metodos Accesores
     public Celular getCelular() {
         return celular;

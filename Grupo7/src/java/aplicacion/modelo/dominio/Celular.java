@@ -65,6 +65,16 @@ public class Celular {
         return pares;
     }
     
+    /**
+     * Compara la cota inferior con la cota superior.
+     * @param cotaInf cota inferior.
+     * @param cotaSup cota superior.
+     * @return devuelve true si la cota inferior es menor a
+     * la cota superior, y devuelve false si la cota superior es menor o igual.
+     */
+    public boolean validarCotas(int cotaInf, int cotaSup){
+        return cotaInf < cotaSup;
+    }
     //Metodos Accesores
     
     public DispositivoCientifico getDc() {

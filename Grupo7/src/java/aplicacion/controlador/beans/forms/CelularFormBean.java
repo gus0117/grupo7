@@ -77,6 +77,17 @@ public class CelularFormBean {
         context.addMessage(null, new FacesMessage("Exito!",  "Se ha generado la tabla") );
     }
     
+    public void validarCotas(){
+        if(celularBean.validarCotas(cotaInferior, cataSuperior) != true){
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, 
+                    "Error",
+                    "La cota inferior debe ser menor a la cota superior"));
+        }
+        else{
+            mostrarMensaje();
+        }
+    }
     // METODOS DE ACCESO
     
     public CelularBean getCelularBean() {
