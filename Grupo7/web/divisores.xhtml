@@ -24,15 +24,25 @@
                     .paginated .ui-datalist-data {
                         padding-left: 20px;
                     }
+                    
                 </style>
                 <h:form id="frmDivisores">
                     <p:growl id="growl" showDetail="true" sticky="true" />
-                    <p:panelGrid id="pnlInputs" columns="2">
-                        <p:outputLabel id="lblNumero" value="Ingrese numero"></p:outputLabel>
-                        <p:inputNumber id="txtNumero" value="#{celularFormBean.numero}" decimalPlaces="0" minValue="0" required="true" requiredMessage="Debe Ingresar un numero"></p:inputNumber>
-                        <p:commandButton id="btnObtenerDivisores" action="#{celularFormBean.mostrarMensaje()}" value="Obtener Divisores" update="tblDivisores :frmDivisores"></p:commandButton>
+                    <p:panelGrid id="pnlInputs" columns="2" styleClass="ui-noborder">
+                        <p:outputLabel id="lblNumero" value="Ingrese numero: "></p:outputLabel>
+                        <p:inputNumber id="txtNumero" value="#{celularFormBean.numero}" placeholder="Ingrese un numero"
+                                       decimalPlaces="0" required="true" requiredMessage="Debe Ingresar un numero"
+                                       validatorMessage="Tiene que ser un número mayor que 0 (cero).">
+                            <f:validateDoubleRange minimum="1"/>
+                        </p:inputNumber>
+                        <br />
+                        <p:commandButton id="btnObtenerDivisores" action="#{celularFormBean.mostrarMensaje()}"
+                                         value="Obtener Divisores" update="tblDivisores :frmDivisores">
+                        </p:commandButton>
                     </p:panelGrid>
-                    <p:dataList id="tblDivisores" value="#{celularFormBean.obtenerDivisores()}" var="divisor" type="ordered" emptyMessage="No hay valores" >
+                    <br />
+                    <p:dataList id="tblDivisores" value="#{celularFormBean.obtenerDivisores()}" var="divisor" 
+                                type="ordered" emptyMessage="No hay valores" >
                         <f:facet name="header">
                             Divisores
                         </f:facet>

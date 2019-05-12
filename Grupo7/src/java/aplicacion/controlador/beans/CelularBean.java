@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package aplicacion.controlador.beans;
 
 import aplicacion.modelo.dominio.Celular;
@@ -10,12 +5,21 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+/**
+ * Bean administrador que gestiona un objeto tipo Celular
+ */
 @ManagedBean
 @SessionScoped
 public class CelularBean {
     
+    /**
+     * Referencia a la clase Celular
+     */
     private Celular celular;
     
+    /**
+     * Constructor por defecto
+     */
     public CelularBean() {
         celular = new Celular();
     }
@@ -38,6 +42,18 @@ public class CelularBean {
     public List<Integer> obtenerDivisores(int numero){
         return celular.obtenerDivisores(numero);
     }
+    
+    /**
+     * Invoca al metodo mostrarPares de la clase Celular
+     * para obtener una lista con los valor pares dentro del rango
+     * @param cotaInf cota inferior del rango
+     * @param cotaSup cota superior del rango
+     * @return devuelve una lista con los numeros pares dentro del rango
+     */
+    public List<Integer> mostrarPares(int cotaInf, int cotaSup){
+        return celular.mostrarPares(cotaInf, cotaSup);
+    }
+    
     //Metodos Accesores
     public Celular getCelular() {
         return celular;

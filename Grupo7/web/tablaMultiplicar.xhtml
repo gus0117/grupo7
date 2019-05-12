@@ -15,14 +15,22 @@
                     <p:growl id="growl" showDetail="true" sticky="true" /> 
                     <p:panelGrid id="pnlTabla">
                         <p:outputLabel id="lblNumero" value="Numero: "></p:outputLabel>
-                        <p:inputNumber id="txtNumber" required="true" requiredMessage="Debe ingresar un numero" value="#{celularFormBean.numero}" decimalPlaces="0">
+                        <p:inputNumber id="txtNumber" placeholder="Ingrese un numero"
+                                       style="margin-left: 5px"
+                                       required="true" requiredMessage="Debe ingresar un numero"
+                                       value="#{celularFormBean.numero}" decimalPlaces="0"
+                                       validatorMessage="El numero debe ser mayor o igual a 1 (uno).">
                             <f:validateLongRange minimum="1"></f:validateLongRange>
                         </p:inputNumber>
-                        <p:commandButton id="btnObtenerTabla" action="#{celularFormBean.mostrarMensaje()}" value="Calcular" update="tblTabla :frmMultiplicador"></p:commandButton>
+                        <p:commandButton id="btnObtenerTabla" style="margin-left: 15px"
+                                         action="#{celularFormBean.mostrarMensaje()}"
+                                         value="Calcular" update="tblTabla :frmMultiplicador"></p:commandButton>
                     </p:panelGrid>
                 </h:form>
-                <p:dataTable id="tblTabla" value="#{celularFormBean.obtenerTablaFormateada()}" var="exp" emptyMessage="No hay valores" style="width: 40%">
-                    <p:column headerText="Tabla de Multiplicar por 1 a 100">
+                <br />
+                <p:dataTable id="tblTabla" value="#{celularFormBean.obtenerTablaFormateada()}"
+                             var="exp" emptyMessage="No hay valores" style="width: 40%">
+                    <p:column headerText="Tabla de Multiplicar de #{celularFormBean.numero}">
                         <p:outputLabel value="#{exp}"></p:outputLabel>
                     </p:column>
                 </p:dataTable>

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package aplicacion.controlador.beans.forms;
 
 import aplicacion.controlador.beans.CelularBean;
@@ -12,9 +7,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
+
 /**
- *
- * @author Joel
+ * ManagedBean que gestiona la página de los diferentes calculos del celular
  */
 @ManagedBean
 @RequestScoped
@@ -25,13 +20,30 @@ public class CelularFormBean {
      */
     @ManagedProperty("#{celularBean}")
     private CelularBean celularBean;
+    
     /**
      * Variable para contener el valor entero y positivo de un input
      */
     private int numero;
     
+    /**
+     * Variable para contener el valor de la cota inferior de
+     * un rango de numeros mayor o igual a 0 (cero).
+     */
+    private int cotaInferior;
+    
+    /**
+     * Variable para contener el valor de la cota superior de
+     * un rango de numeros mayor o igual a 0 (cero).
+     */
+    private int cataSuperior;
+    
+    /**
+     * Constructor por defecto
+     */
     public CelularFormBean() {
     }
+    
     /**
      * Invoca al metodo obtenerTablaFormateada de CelularBean
      * @return devuelve una lista de string con formato A x B = C
@@ -49,6 +61,14 @@ public class CelularFormBean {
     }
     
     /**
+     * Invoca al metodo mostrarPares de CalularBean
+     * @return devuelve una lista con los valores pares del rango
+     */
+    public List<Integer> mostrarPares(){
+        return celularBean.mostrarPares(cotaInferior, cataSuperior);
+    }
+    
+    /**
      * Metodo para mostrar mensajes
      */
     public void mostrarMensaje() {
@@ -56,7 +76,9 @@ public class CelularFormBean {
          
         context.addMessage(null, new FacesMessage("Exito!",  "Se ha generado la tabla") );
     }
-    //Metodos accesores
+    
+    // METODOS DE ACCESO
+    
     public CelularBean getCelularBean() {
         return celularBean;
     }
@@ -72,7 +94,32 @@ public class CelularFormBean {
     public void setNumero(int numero) {
         this.numero = numero;
     }
-    
-    
-    
+
+    /**
+     * @return the cotaInferior
+     */
+    public int getCotaInferior() {
+        return cotaInferior;
+    }
+
+    /**
+     * @param cotaInferior the cotaInferior to set
+     */
+    public void setCotaInferior(int cotaInferior) {
+        this.cotaInferior = cotaInferior;
+    }
+
+    /**
+     * @return the cataSuperior
+     */
+    public int getCataSuperior() {
+        return cataSuperior;
+    }
+
+    /**
+     * @param cataSuperior the cataSuperior to set
+     */
+    public void setCataSuperior(int cataSuperior) {
+        this.cataSuperior = cataSuperior;
+    }
 }

@@ -1,5 +1,5 @@
-
 package aplicacion.modelo.dominio;
+
 /**
  * Clase que contiene metodos para operaciones matematicas
  * Metodos Disponibles:
@@ -14,10 +14,23 @@ package aplicacion.modelo.dominio;
  * -calcularPotencia
  * -calcularCoseno
  */
+
 public class DispositivoCientifico {
+    /**
+     * Marca del dispositivo cientifico
+     */
     private String marca;
+    /**
+     * Modelo del dispositivo cientifico
+     */
     private String modelo;
+    /**
+     * Sistema Operativo del dispositivo cientifico
+     */
     private String sistemaOperativo;
+    /**
+     * Versión del sistema operativo del dispositivo cientifico
+     */
     private String version;
     
     /**
@@ -29,6 +42,7 @@ public class DispositivoCientifico {
     public int calcularSuma(int a, int b){
         return a + b;
     }
+    
     /**
      * Devuelve la resta entre dos numeros enteros
      * @param a primer termino de la resta
@@ -38,6 +52,7 @@ public class DispositivoCientifico {
     public int calcularResta(int a, int b){
         return a - b;
     }
+    
     /**
      * Calcular la multiplicacion entre dos numeros enteros
      * @param a primer factor
@@ -47,6 +62,7 @@ public class DispositivoCientifico {
     public int calcularMultiplicacion(int a, int b){
         return a * b;
     }
+    
     /**
      * Calcula la division entre dos numeros enteros.
      * Devuelve una excepcion si el divisor es cero
@@ -62,6 +78,7 @@ public class DispositivoCientifico {
             return a / b;
         }
     }
+    
     /**
      * Calcula el factorial de un numero entero positivo haciendo uso de la estructura iterativa "for".
      * Se lanzara una excepcion si el parametro es negativo
@@ -80,6 +97,7 @@ public class DispositivoCientifico {
             return fac;
         }
     }
+    
     /**
      * Compara dos numeros enteros y segun el boolean devolvera el mayor o menor
      * @param a primer numero
@@ -106,6 +124,7 @@ public class DispositivoCientifico {
             }
         }
     }
+    
     /**
      * Calcula el resto de una division entre dos numeros enteros.
      * Devuelve una excepcion si el segundo parametro es igual a 0
@@ -122,6 +141,7 @@ public class DispositivoCientifico {
             return a%b;
         }
     }
+    
     /**
      * Verifica la paridad de un numero comparando el resto de la division entre el numero y el valor 2.
      * Si el resto es igual a cero el valor a es par, de lo contrario es impar.
@@ -136,6 +156,7 @@ public class DispositivoCientifico {
             System.out.println("No es Par");
         }
     }
+    
     /**
      * Calcula la potencia realizando multiplicaciones susecivas.
      * Se multiplica el valor de la "base" por si mismo "expo" veces
@@ -150,6 +171,7 @@ public class DispositivoCientifico {
         }
         return pro;
     }
+    
     /**
      * Calcula el coseno de un numero haciendo uso de la formula de Maclaurin
      * @param x valor del argumento

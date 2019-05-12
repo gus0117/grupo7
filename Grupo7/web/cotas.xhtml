@@ -1,12 +1,60 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <title>Cotas</title>
-    </h:head>
-    <h:body>
-        Hello from Facelets
-    </h:body>
-</html>
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
+    <body>
+
+        <ui:composition template="./WEB-INF/Templates/principalTemplate.xhtml">
+
+            <ui:define name="content">
+                <style type="text/css">
+                    .ui-datascroller {
+                        width: 300px;
+                    } 
+                    .ui-datascroller .ui-datascroller-item {
+                        border-bottom: 1px solid #A8A8A8;
+                        padding: 3px 3px;
+                        margin-left: 90px;
+                        width: 70px;
+                        text-align: center;
+                    }
+                </style>
+                
+                <h:form id="frmCotas">
+                    <p:growl id="growl" showDetail="true" sticky="true" />
+                    <p:panelGrid id="pnlInputs" columns="2" styleClass="ui-noborder">
+                        <p:outputLabel id="lblCotaInf" value="Ingrese cota Inferior: "></p:outputLabel>
+                        <p:inputNumber id="txtCotaInf" value="#{celularFormBean.cotaInferior}" placeholder="Ingrese un numero"
+                                       decimalPlaces="0" required="true" requiredMessage="Debe Ingresar un numero"
+                                       validatorMessage="Tiene que ser un número igual o mayor que 0 (cero).">
+                            <f:validateDoubleRange minimum="0"/>
+                        </p:inputNumber>
+                        <p:outputLabel id="lblCotaSup" value="Ingrese cota Superior: "></p:outputLabel>
+                        <p:inputNumber id="txtCotaSup" value="#{celularFormBean.cataSuperior}" placeholder="Ingrese un numero"
+                                       decimalPlaces="0" required="true" requiredMessage="Debe Ingresar un numero"
+                                       validatorMessage="Tiene que ser un número igual o mayor que 0 (cero).">
+                            <f:validateDoubleRange minimum="0"/>
+                        </p:inputNumber>
+                        <br />
+                        <p:commandButton id="btnObtenerPares" action="#{celularFormBean.mostrarMensaje()}"
+                                         value="Obtener Pares" update="tblPares :frmCotas">
+                        </p:commandButton>
+                    </p:panelGrid>
+                    <br />
+                    <p:dataScroller id="tblPares" value="#{celularFormBean.mostrarPares()}" var="par">
+                        <f:facet name="header">
+                            Numeros Pares en [ #{celularFormBean.cotaInferior}, #{celularFormBean.cataSuperior} ]
+                        </f:facet>
+                        #{par}
+                    </p:dataScroller>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

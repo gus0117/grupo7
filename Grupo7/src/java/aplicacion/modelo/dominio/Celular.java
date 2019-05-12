@@ -1,20 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package aplicacion.modelo.dominio;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author Joel
+ * Clase que implementa la clase DispositivoCientifico
  */
 public class Celular {
     /**
-     * Referencia a la clase que contiene varias operaciones matematicas
+     * Objeto de la clase que contiene varias operaciones matematicas
      */
     private DispositivoCientifico dc;
 
@@ -53,6 +47,24 @@ public class Celular {
         }
         return divisores;
     }
+    
+    /**
+     * Genera una lista de los numeros pares dentro de un rango
+     * @param cotaInf cota inferior del rango
+     * @param cotaSup sota superior del rango
+     * @return devuelve una lista con los números enteros dentro del rango
+     */
+    public List<Integer> mostrarPares(int cotaInf, int cotaSup) {
+        List<Integer> pares = new ArrayList<Integer>();
+        for (int i = cotaInf; i <= cotaSup; i++) {
+            if (dc.calcularResto(i, 2) == 0) {
+                pares.add(i);
+            }
+        }
+        System.out.println(pares.toString());
+        return pares;
+    }
+    
     //Metodos Accesores
     
     public DispositivoCientifico getDc() {
