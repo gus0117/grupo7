@@ -61,7 +61,6 @@ public class Celular {
                 pares.add(i);
             }
         }
-        System.out.println(pares.toString());
         return pares;
     }
     
@@ -75,6 +74,11 @@ public class Celular {
     public boolean validarCotas(int cotaInf, int cotaSup){
         return cotaInf < cotaSup;
     }
+    
+    public double calcularCoseno(float x){
+        return dc.calcularCoseno(x, 10);
+    }
+    
     //Metodos Accesores
     
     public DispositivoCientifico getDc() {

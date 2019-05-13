@@ -68,6 +68,10 @@ public class CelularFormBean {
         return celularBean.mostrarPares(cotaInferior, cataSuperior);
     }
     
+    public double calcularCoseno(){
+        return celularBean.calcularCoseno(numero);
+    }
+    
     /**
      * Metodo para mostrar mensajes
      */
@@ -76,7 +80,10 @@ public class CelularFormBean {
          
         context.addMessage(null, new FacesMessage("Exito!",  "Se ha generado la tabla") );
     }
-    
+    /**
+     * Metodo para validar que la cota inferior de un rango de numeros
+     * sea menor que la cota superior.
+     */
     public void validarCotas(){
         if(celularBean.validarCotas(cotaInferior, cataSuperior) != true){
             FacesContext context = FacesContext.getCurrentInstance();
@@ -88,6 +95,7 @@ public class CelularFormBean {
             mostrarMensaje();
         }
     }
+    
     // METODOS DE ACCESO
     
     public CelularBean getCelularBean() {

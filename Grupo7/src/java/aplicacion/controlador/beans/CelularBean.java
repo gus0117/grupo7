@@ -54,6 +54,10 @@ public class CelularBean {
         return celular.mostrarPares(cotaInf, cotaSup);
     }
     
+    public double calcularCoseno(float num){
+        return celular.calcularCoseno(num);
+    }
+    
     /**
      * Invoca al metodo celular.validarCotas.
      * Valida si la cota inferior es menor a la cota superior

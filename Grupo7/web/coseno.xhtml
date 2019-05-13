@@ -1,12 +1,39 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <title>Coseno</title>
-    </h:head>
-    <h:body>
-        Hello from Facelets
-    </h:body>
-</html>
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
+    <body>
+
+        <ui:composition template="./WEB-INF/Templates/principalTemplate.xhtml">
+
+            <ui:define name="content">
+                <h:form id="frmCoseno">
+                    <p:growl id="growl" showDetail="true" sticky="true" /> 
+                    <p:panelGrid id="pnlCoseno">
+                        <p:outputLabel id="lblNum" value="Ingresar número (en Grados): "></p:outputLabel>
+                        <p:inputNumber id="txtNum" placeholder="Ingrese numero en grados"
+                                       style="margin-left: 5px"
+                                       required="true" requiredMessage="Debe ingresar un numero"
+                                       value="#{celularFormBean.numero}" decimalPlaces="0"
+                                       validatorMessage="El numero debe estar entre 0 y 360 grados.">
+                            <f:validateLongRange minimum="0" maximum="360"></f:validateLongRange>
+                        </p:inputNumber>
+                        <p:commandButton id="btnObtenerCoseno" style="margin-left: 15px"
+                                         action="#{celularFormBean.mostrarMensaje()}"
+                                         value="Calcular Coseno" update="txtResultado :frmCoseno"></p:commandButton>
+                        <br/>
+                        <p:outputLabel id="lblResultado" value="Coseno de #{celularFormBean.numero} es: "/>
+                        <p:outputLabel id="txtResultado" value="#{celularFormBean.calcularCoseno()}"/>
+                    </p:panelGrid>
+                </h:form>
+                <br />
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
