@@ -54,6 +54,11 @@ public class CelularBean {
         return celular.mostrarPares(cotaInf, cotaSup);
     }
     
+    /**
+     * Calcula el coseno de un angulo en grados
+     * @param num numero en grados
+     * @return devulve el valor del coseno
+     */
     public double calcularCoseno(float num){
         return celular.calcularCoseno(num);
     }

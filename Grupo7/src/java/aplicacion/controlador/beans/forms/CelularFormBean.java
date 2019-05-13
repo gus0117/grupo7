@@ -68,8 +68,13 @@ public class CelularFormBean {
         return celularBean.mostrarPares(cotaInferior, cataSuperior);
     }
     
+    /**
+     * Calcula el coseno de un angulo en grados
+     * @return devuelve el valor del coseno en un numero double
+     */
     public double calcularCoseno(){
         return celularBean.calcularCoseno(numero);
+        
     }
     
     /**
@@ -80,6 +85,17 @@ public class CelularFormBean {
          
         context.addMessage(null, new FacesMessage("Exito!",  "Se ha generado la tabla") );
     }
+    
+    /**
+     * Metodo para mostrar mensajes personalizados
+     * @param msg mensaje a mostrar
+     */
+    public void mostrarMensaje(String msg) {
+        FacesContext context = FacesContext.getCurrentInstance();
+         
+        context.addMessage(null, new FacesMessage("Exito!",  msg) );
+    }
+    
     /**
      * Metodo para validar que la cota inferior de un rango de numeros
      * sea menor que la cota superior.

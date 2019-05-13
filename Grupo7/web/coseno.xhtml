@@ -23,11 +23,13 @@
                             <f:validateLongRange minimum="0" maximum="360"></f:validateLongRange>
                         </p:inputNumber>
                         <p:commandButton id="btnObtenerCoseno" style="margin-left: 15px"
-                                         action="#{celularFormBean.mostrarMensaje()}"
+                                         action="#{celularFormBean.mostrarMensaje('Se calculo el coseno')}"
                                          value="Calcular Coseno" update="txtResultado :frmCoseno"></p:commandButton>
                         <br/>
                         <p:outputLabel id="lblResultado" value="Coseno de #{celularFormBean.numero} es: "/>
-                        <p:outputLabel id="txtResultado" value="#{celularFormBean.calcularCoseno()}"/>
+                        <p:outputLabel id="txtResultado" value="#{celularFormBean.calcularCoseno()}">
+                            <f:convertNumber integerOnly="false" maxFractionDigits="4" minFractionDigits="1"></f:convertNumber>
+                        </p:outputLabel>
                     </p:panelGrid>
                 </h:form>
                 <br />

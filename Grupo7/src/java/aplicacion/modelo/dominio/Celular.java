@@ -75,8 +75,13 @@ public class Celular {
         return cotaInf < cotaSup;
     }
     
+    /**
+     * Calcula el valor del coseno haciendo uso de Dispositivo Cientifico
+     * @param x angulo
+     * @return devuelve el valor del coseno
+     */
     public double calcularCoseno(float x){
-        return dc.calcularCoseno(x, 10);
+        return dc.calcularCoseno(x, 5);
     }
     
     //Metodos Accesores
